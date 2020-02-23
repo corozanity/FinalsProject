@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/bg"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+    android:layout_width="220dp"
+    android:layout_height="200dp"
+    android:layout_marginTop="70dp"
+    app:srcCompat="@drawable/profile"
+    />
+
+    <EditText
+        android:id="@+id/add_user"
+        android:layout_width="216dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/stroke_focus"
+        android:ems="10"
+        android:maxLength="14"
+        android:digits="0123456789_qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+        android:fontFamily="sans-serif-medium"
+        android:hint="@string/userhint"
+        android:inputType="textPersonName"
+        />
+
+    <EditText
+        android:id="@+id/add_pass"
+        android:layout_width="216dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/stroke_focus"
+        android:ems="10"
+        android:fontFamily="sans-serif-medium"
+        android:hint="@string/passhint"
+        android:inputType=""
+        android:password="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
+
+    <EditText
+        android:id="@+id/add_pass_confirm"
+        android:layout_width="216dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/stroke_focus"
+        android:ems="10"
+        android:fontFamily="sans-serif-medium"
+        android:hint="@string/retype_passhint"
+        android:inputType="textPersonName"
+        android:password="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/buttons"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/dlt"
+        android:layout_width="61dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="120dp"
+        android:background="#FFFFFF"
+        android:text="@string/del"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

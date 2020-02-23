@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Final Project</string>
+    //Dialog
+    <string name="d_title">Confirmation</string>
+    //Login Page
+    <string name="login">SIGN IN</string>
+    <string name="text_reg">Not registered?</string>
+    <string name="userhint">Username</string>
+    <string name="passhint">Password</string>
+    <string name="register">Create an account</string>
+    //Register Page
+    <string name="retype_passhint">Re-type Password</string>
+    <string name="submit">CREATE</string>
+    <string name="del">DELETE</string>
+    <string name="required">This is a required field.</string>
+    <string name="r_success">You are now registered.</string>
+    <string name="r_error">Registration error.</string>
+    <string name="user_taken">Username is already taken.</string>
+    <string name="pword_match">Password does not match</string>
+    <string name="asnwerAll">Answer all fields.</string>
+    <string name="incorrect_pass">Incorrect password.</string>
+</resources>
