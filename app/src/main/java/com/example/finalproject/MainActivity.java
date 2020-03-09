@@ -2,7 +2,6 @@ package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -12,7 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+
 public class MainActivity extends AppCompatActivity {
+
+
 
     EditText user;
     EditText pass;
@@ -24,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         db = new DatabaseLogin(this);
         login = findViewById(R.id.login);
@@ -37,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String admin_user = "admin";
+                String admin_pass =  "admin";
                 String user_name = user.getText().toString().trim();
                 String pwd = pass.getText().toString().trim();
                 Boolean res = db.checkUser(user_name, pwd);
@@ -48,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_LONG).show();
                     user.setBackgroundResource(R.drawable.correct_stroke);
                     pass.setBackgroundResource(R.drawable.correct_stroke);
+                    Intent i = new Intent(getApplicationContext(), MainMenu.class);
+                    i.putExtra("user_name", user_name);
+                    startActivity(i);
+                    finish();
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
 
                 else if(check && !checkpass){
@@ -84,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
                     vibrator.vibrate(pattern, -1);
 
                 }
+                else if(pass.getText().equals(admin_pass) && user.getText().equals(admin_user)){
+                    db.deleteAll();
+                    Toast.makeText(getApplicationContext(), "DELETED ALL USERS", Toast.LENGTH_SHORT).show();
+                }
 
                 else{
                     Toast.makeText(MainActivity.this, "User is not registered.", Toast.LENGTH_LONG).show();
@@ -103,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Register.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 

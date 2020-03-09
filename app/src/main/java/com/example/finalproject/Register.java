@@ -2,12 +2,15 @@ package com.example.finalproject;
 
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Register extends AppCompatActivity {
@@ -39,8 +42,8 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                String user = add_user.getText().toString().trim();
-                String pwd = add_pass.getText().toString().trim();
+                final String user = add_user.getText().toString().trim();
+                final String pwd = add_pass.getText().toString().trim();
                 String cnf_pwd = add_pass_confirm.getText().toString().trim();
                 Boolean check = db.check(user);
 
@@ -136,18 +139,36 @@ public class Register extends AppCompatActivity {
 
                         //checks if user does not exist in database
                         if (!check) {
-                            long val = db.addUser(user, pwd);
-                            //adds user
-                            if (val > 0) {
-                                Toast.makeText(Register.this, getString(R.string.r_success), Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(Register.this, MainActivity.class);
-                                startActivity(intent);
-                                overridePendingTransition(R.anim.left_in, R.anim.right_out);
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(Register.this);
+                            builder.setMessage("Are you sure you want to create this account?")
+                                    .setTitle("Confirmation")
+                                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            long val = db.addUser(user, pwd);
+                                            if (val > 0) {
+                                                Toast.makeText(Register.this, getString(R.string.r_success), Toast.LENGTH_LONG).show();
+                                                Intent intent = new Intent(Register.this, MainActivity.class);
+                                                startActivity(intent);
+                                                overridePendingTransition(R.anim.left_in, R.anim.right_out);
+
+                                            } else {
+                                                Toast.makeText(Register.this, getString(R.string.r_error), Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    })
+                                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
 
 
-                            } else {
-                                Toast.makeText(Register.this, getString(R.string.r_error), Toast.LENGTH_LONG).show();
-                            }
+                                        }
+                                    });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+
+
                         }
                             else {
                             Toast.makeText(Register.this, getString(R.string.user_taken), Toast.LENGTH_LONG).show();
