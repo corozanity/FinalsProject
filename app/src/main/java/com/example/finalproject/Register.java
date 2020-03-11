@@ -1,13 +1,12 @@
 package com.example.finalproject;
 
-
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -21,6 +20,7 @@ public class Register extends AppCompatActivity {
     EditText add_pass_confirm;
     Button submit;
     Button dlt;
+    TextView signin;
 
 
     @Override
@@ -34,6 +34,7 @@ public class Register extends AppCompatActivity {
         add_pass_confirm = findViewById(R.id.add_pass_confirm);
         submit = findViewById(R.id.submit);
         dlt = findViewById(R.id.dlt);
+        signin = findViewById(R.id.signin);
 
 
 
@@ -141,9 +142,9 @@ public class Register extends AppCompatActivity {
                         if (!check) {
 
                             AlertDialog.Builder builder = new AlertDialog.Builder(Register.this);
-                            builder.setMessage("Are you sure you want to create this account?")
-                                    .setTitle("Confirmation")
-                                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            builder.setMessage(getString(R.string.rdialogmessage))
+                                    .setTitle(getString(R.string.confirmation))
+                                    .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             long val = db.addUser(user, pwd);
@@ -152,13 +153,14 @@ public class Register extends AppCompatActivity {
                                                 Intent intent = new Intent(Register.this, MainActivity.class);
                                                 startActivity(intent);
                                                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
+                                                finish();
 
                                             } else {
                                                 Toast.makeText(Register.this, getString(R.string.r_error), Toast.LENGTH_LONG).show();
                                             }
                                         }
                                     })
-                                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    .setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
 
@@ -202,6 +204,16 @@ public class Register extends AppCompatActivity {
                 }
             }
 
+        });
+
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register.this, MainActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.left_in, R.anim.right_out);
+                finish();
+            }
         });
 
 

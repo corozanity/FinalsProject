@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Final Project</string>
+    <string name="app_name">Magic 8 Ball</string>
     //Dialog
     <string name="d_title">Confirmation</string>
     //Login Page
@@ -12,6 +12,7 @@
     <string name="retype_passhint">Re-type Password</string>
     <string name="submit">CREATE</string>
     <string name="del">DELETE</string>
+    <string name="signin">Already signed up? Sign in</string>
     <string name="required">This is a required field.</string>
     <string name="r_success">You are now registered.</string>
     <string name="r_error">Registration error.</string>
@@ -34,4 +35,16 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+
+    <string name="sdialogmessage">Are you sure you want to sign out?</string>
+    <string name="sdialogtitle">Exit</string>
+    <string name="signout">Signed out successfully</string>
+    <string name="leave">Leave</string>
+    <string name="stay">Stay</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="rdialogmessage">Are you sure you want to create this account?</string>
+    <string name="ask">Ask me anything.</string>
+
 </resources>

@@ -5,5 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="bg">#81C784</color>
+    <color name="bg">#2c3e50</color>
+    <color name="butons">#ecf0f1</color>
+    <color name="icon">#95afc0</color>
 </resources>

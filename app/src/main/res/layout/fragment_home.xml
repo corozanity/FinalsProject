@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/bg"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
     <TextView
+        android:id="@+id/ask"
+        android:layout_marginTop="110dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HOME"
-        android:textSize="60sp"
-        android:layout_centerInParent="true"/>
+        android:text="@string/ask"
+        android:textSize="30sp"
+        android:textColor="@color/butons"/>
 
-</RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/logo"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/mainlogo"
+        />
+
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:textSize="30sp"
+        android:textColor="@color/butons"
+        android:gravity="center"
+        />
+
+</LinearLayout>
